@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje de Error</title>
+   <style>
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8d7da;
+    color: #721c24;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #f9c2c4;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.error-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #c82333;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #b21f28;
+}
+
+
+
+
+   </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="error-title">Error</h1>
+        <div class="error-message">
+            <p id="message"></p>
+            <a href="/" class="btn">Volver al Login</a>
+        </div>
+    </div>
+    <script>
+        // Este script puede recibir el mensaje de error
+        const message = "{{ message }}"; // Aquí se asigna el mensaje desde Flask
+        document.getElementById("message").innerText = message;
+    </script>
+</body>
+</html>

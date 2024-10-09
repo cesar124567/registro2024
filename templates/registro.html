@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Registro de Usuarios</title>
+    <style>
+        /* Estilo general del cuerpo */
+        body {
+            background: linear-gradient(135deg, #53a9e5, #ff6b8b);
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Contenedor del formulario de login */
+        .login-container {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Estilo del título */
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4e54c8;
+            margin-bottom: 25px;
+        }
+
+        /* Estilo de las etiquetas */
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: left;
+            margin: 15px 0 5px;
+            color: #4e54c8;
+        }
+
+        /* Estilo de los campos de entrada */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 16px;
+            background-color: #f7f9fc;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Color de fondo de los campos al enfocarse */
+        input:focus {
+            outline: none;
+            border-color: #8f94fb;
+            box-shadow: 0 0 8px rgba(79, 84, 255, 0.2);
+        }
+
+        /* Estilo del botón */
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #4e54c8;
+            border: none;
+            color: white;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Efecto hover y clic del botón */
+        button:hover {
+            background-color: #3e42b8;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Botón de configuración */
+        .config-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .config-icon {
+            width: 32px;
+            height: 32px;
+            transition: transform 0.3s ease;
+        }
+
+        .config-icon:hover {
+            transform: rotate(20deg);
+        }
+
+        /* Ajustes de contenedor */
+        .container {
+            position: relative;
+        }
+
+        /* Estilo del mensaje informativo */
+        .info-message {
+            margin-bottom: 15px;
+            color: #ff0000; /* Color rojo para destacar advertencias */
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor de la página -->
+    <div class="container">
+        <!-- Aquí agregamos el botón de configuración en la parte superior derecha -->
+        <div class="config-button">
+            <a href="/admon2024">
+                <img src="config-icon.png" alt="Configuración" class="config-icon">
+            </a>
+        </div>
+
+        <!-- Contenedor del login -->
+        <div class="login-container">
+            <h1>Login de Usuario</h1>
+            <div class="info-message">
+                <p>Se capturará automáticamente una imagen para el reconocimiento.</p>
+            </div>
+            <form action="/" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="codigo">Código:</label>
+                <input type="password" id="codigo" name="codigo" required>
+
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

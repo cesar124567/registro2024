@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Exitoso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #53a9e5, #ff6b8b);
+        }
+
+        .message-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 400px;
+            background: rgba(255, 255, 255, 0.8);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #53a9e5;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6b8b;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #d45b6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <h1>¡Registro Exitoso!</h1>
+        <p>Gracias por registrarte. Tus datos han sido guardados exitosamente.</p>
+        <a href="/">Regresar al formulario</a>
+    </div>
+
+    <script>
+        // Función para reproducir voz usando la API de Web Speech
+        function speakMessage(message) {
+            // Crear una nueva instancia de SpeechSynthesisUtterance
+            const utterance = new SpeechSynthesisUtterance(message);
+
+            // Opciones adicionales como la voz, velocidad, y tono
+            utterance.lang = 'es-ES'; // Lenguaje: Español de España
+            utterance.rate = 1; // Velocidad
+            utterance.pitch = 1; // Tono
+
+            // Reproducir el mensaje
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Obtener el nombre del usuario registrado (este dato se debería pasar desde el servidor en Flask)
+        const nombreUsuario = "{{ nombre_usuario }}"; // Esto sería dinámico desde Flask
+
+        // Mensaje que se reproducirá al cargar la página
+        const mensaje = `Registro exitoso, ${nombreUsuario}. Ahora puedes volver al formulario. Hasta pronto.`;
+
+        // Llamar a la función para reproducir el mensaje cuando la página se carga
+        window.onload = function() {
+            speakMessage(mensaje);
+        };
+    </script>
+</body>
+</html>
